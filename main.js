@@ -1,6 +1,4 @@
-import "./App.css";
-
-function replaceDateDigits(): string {
+function replaceDateDigits() {
   /** Replaces the digits of the current date with mapped letters. */
   const now = new Date();
   const formattedDate = now
@@ -13,17 +11,17 @@ function replaceDateDigits(): string {
 
   console.log(`Hoje: ${formattedDate}`);
 
-  const digitMap: Record<string, string> = {
-    "1": "2",
-    "2": "3",
-    "3": "4",
-    "4": "1",
-    "5": "2",
-    "6": "3",
-    "7": "4",
-    "8": "1",
-    "9": "2",
-    "0": "1",
+  const digitMap = {
+    1: "2",
+    2: "3",
+    3: "4",
+    4: "1",
+    5: "2",
+    6: "3",
+    7: "4",
+    8: "1",
+    9: "2",
+    0: "1",
   };
 
   const passwordOfTheDay = formattedDate
@@ -41,14 +39,9 @@ function replaceDateDigits(): string {
   return formattedPassword;
 }
 
-function App() {
-  const passwordOfTheDay: string = replaceDateDigits();
-
-  return (
-    <>
-      <h1>{passwordOfTheDay}</h1>
-    </>
-  );
-}
-
-export default App;
+document.addEventListener("DOMContentLoaded", () => {
+  const h1Element = document.querySelector("h1");
+  if (h1Element) {
+    h1Element.textContent = replaceDateDigits();
+  }
+});
