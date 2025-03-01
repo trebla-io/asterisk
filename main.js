@@ -40,7 +40,8 @@ function replaceDateDigits() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const h1Element = document.querySelector("h1");
+  const h1Element = document.getElementById("replace");
+
   if (h1Element) {
     h1Element.textContent = replaceDateDigits();
   }
